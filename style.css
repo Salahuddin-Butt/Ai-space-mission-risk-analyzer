@@ -1,0 +1,227 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+.bg-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    filter: brightness(0.9) blur(0.5px) saturate(1.25);
+    opacity: 1;
+}
+.container {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+header {
+    text-align: center;
+    padding: 2.5rem 0 1.5rem 0;
+    background: rgba(12, 18, 38, 0.6);
+    box-shadow: 0 2px 24px #1a1a2e99;
+    border-bottom: 2px solid #ffe08288;
+    border-radius: 0 0 32px 32px;
+    margin-bottom: 2rem;
+}
+header h1 {
+    font-size: 2.8rem;
+    letter-spacing: 2.5px;
+    margin: 0;
+    color: #fffde4;
+    text-shadow: 0 0 24px #ffe082, 0 0 48px #fffde4;
+}
+header p {
+    color: #ffe082;
+    margin: 0.7rem 0 0 0;
+    font-size: 1.2rem;
+    letter-spacing: 1.2px;
+    text-shadow: 0 0 8px #1a1a2e;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    padding: 2rem 1rem 1rem 1rem;
+}
+section {
+    background: rgba(18, 22, 48, 0.85);
+    border-radius: 24px;
+    box-shadow: 0 0 48px #ffe08233, 0 0 96px #fffde455;
+    padding: 2.5rem 2rem 2rem 2rem;
+    min-width: 340px;
+    max-width: 440px;
+    flex: 1 1 380px;
+    backdrop-filter: blur(10px) saturate(1.15);
+    border: 2px solid #ffe08255;
+    margin-bottom: 2rem;
+    transition: box-shadow 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+section:hover {
+    box-shadow: 0 0 96px #ffe08299, 0 0 192px #fffde444;
+    transform: translateY(-6px) scale(1.03);
+}
+section h2 {
+    font-size: 1.6rem;
+    color: #fffde4;
+    text-shadow: 0 0 12px #ffe082, 0 0 24px #fffde4;
+    margin-bottom: 1.2rem;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+form label {
+    color: #fffde4;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
+}
+input, button[type="submit"] {
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.08rem;
+}
+input {
+    background: #23263aee;
+    color: #fffde4;
+    border: 1.5px solid #ffe082;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 8px #ffe08222;
+}
+input:focus {
+    border: 2px solid #ffe082;
+    box-shadow: 0 0 16px #ffe08266;
+}
+input::placeholder {
+    color: #ffe082;
+    opacity: 1;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+input:focus::placeholder {
+    color: #fffde4;
+    opacity: 1;
+}
+button[type="submit"], #analyzeBtn {
+    background: linear-gradient(90deg, #fffde4, #ffe082, #fffde4);
+    color: #23263a;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 24px #ffe08288;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    border: none;
+    margin-top: 0.5rem;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+}
+button[type="submit"]:hover, #analyzeBtn:hover {
+    background: linear-gradient(90deg, #ffe082, #fffde4, #ffe082);
+    color: #1a1a2e;
+    box-shadow: 0 0 48px #ffe082bb;
+}
+#riskResult {
+    margin-top: 1.3rem;
+    font-size: 1.2rem;
+    color: #ffe082;
+    min-height: 2.2rem;
+    text-align: center;
+    text-shadow: 0 0 12px #ffe082;
+}
+#passengerList {
+    margin-top: 1.2rem;
+    list-style: none;
+    padding: 0;
+}
+#passengerList li {
+    background: #23263acc;
+    margin-bottom: 0.6rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 16px #ffe08233;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.5s;
+    font-size: 1.08rem;
+    color: #fffde4;
+}
+#passengerList li button {
+    background: linear-gradient(90deg, #ffe082, #fffde4);
+    color: #23263a;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 12px #ffe08255;
+    transition: background 0.3s, color 0.3s;
+}
+#passengerList li button:hover {
+    background: linear-gradient(90deg, #fffde4, #ffe082);
+    color: #1a1a2e;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+footer {
+    text-align: center;
+    padding: 1.5rem 0 1rem 0;
+    color: #fffde4;
+    background: rgba(12, 18, 38, 0.6);
+    margin-top: 2rem;
+    font-size: 1.15rem;
+    letter-spacing: 1.2px;
+    border-radius: 32px 32px 0 0;
+    border-top: 2px solid #ffe08288;
+    box-shadow: 0 -2px 24px #1a1a2e99;
+}
+
+select {
+    background: #23263aee;
+    color: #fffde4;
+    border: 1.5px solid #ffe082;
+    border-radius: 10px;
+    padding: 0.7rem;
+    font-size: 1.08rem;
+    box-shadow: 0 0 8px #ffe08222;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    margin-bottom: 0.2rem;
+}
+select:focus {
+    border: 2px solid #ffe082;
+    box-shadow: 0 0 16px #ffe08266;
+    color: #fffde4;
+}
+select option[disabled][selected] {
+    color: #ffe082;
+    background: #23263aee;
+}
+
+input[type="checkbox"] {
+    accent-color: #ffe082;
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 0.5em;
+    vertical-align: middle;
+}
+
+/* Ensure label text for selects and checkboxes is white */
+form label, form label select, form label input[type="checkbox"] {
+    color: #fffde4;
+}
